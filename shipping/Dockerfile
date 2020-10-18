@@ -1,17 +1,15 @@
 # syntax=docker/dockerfile:experimental
 FROM maven:3-jdk-11 as build
 WORKDIR /tmp
+COPY src /tmp/src
+COPY pom.xml /tmp/
+RUN --mount=type=cache,id=maven,target=/root/.m2,sharing=shared mvn clean package
 
-copy src /tmp/src
-copy pom.xml /tmp/
-
-run --mount=type=cache,id=maven,target=/root/.m2,sharing=shared mvn clean package
-
-from adoptopenjdk/openjdk11:alpine
+FROM adoptopenjdk/openjdk11:alpine
 
 COPY --from=build /tmp/target/shipping.jar /shipping.jar
 
-run chmod a+rx ./shipping.jar
+RUN chmod a+rx ./shipping.jar
 
 USER ${SERVICE_USER}
 
@@ -19,7 +17,7 @@ ARG BUILD_DATE
 ARG BUILD_VERSION
 ARG COMMIT
 
-LABEL org.label-schema.vendor="bryandollery" \
+LABEL org.label-schema.vendor="walaafahad" \
   org.label-schema.build-date="${BUILD_DATE}" \
   org.label-schema.version="${BUILD_VERSION}" \
   org.label-schema.name="Socks Shop: Shipping" \

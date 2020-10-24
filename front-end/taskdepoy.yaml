@@ -8,7 +8,7 @@ spec:
     - name: pathToYamlFile
       type: string
       description: The path to the yaml file to deploy within the git source
-      default: $(resources.inputs.source-git.path)/front-end/front-end-deployemnt.yaml
+      default: $(resources.inputs.source-git.path)/front-end
     - name: namespace
       default: test
   resources:
@@ -25,4 +25,3 @@ spec:
        - "$(params.pathToYamlFile)"
        - "-n"
        - "$(params.namespace)"
-

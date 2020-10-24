@@ -4,7 +4,7 @@ metadata:
   name: front-end-pipeline
 spec:
   resources:
-    - name: final
+    - name: source-git
       type: git
   tasks:
     - name: build
@@ -13,7 +13,7 @@ spec:
       resources:
         inputs: 
         - name: source-git
-          resource: final
+          resource: source-git
     - name: front-end-deploy-kubectl
       runAfter: ["build"]
       taskRef:
@@ -21,4 +21,4 @@ spec:
       resources:
         inputs:
         - name: source-git
-          resource: final
+          resource: source-git

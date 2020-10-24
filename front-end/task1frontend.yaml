@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: front-end-run
+  namespace: test
+spec:
+  serviceAccountName: sock-shop
+  taskRef:
+    name: build-front-end
+  resources:
+    inputs: 
+    - name: source-git
+      resourceRef:
+        name: source-git
+  params:
+    - name: IMAGE
+      value: "walaafahad/front-end"

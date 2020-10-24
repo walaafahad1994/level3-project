@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: build-frontendrun
+  namespace: test
+spec:
+  serviceAccountName: pipeline-account
+  taskRef:
+    name: build-front-end
+  resources:
+    inputs:
+      - name: docker-source
+        resourceRef:
+          name: source-git
+    outputs:
+      - name: builtImage
+        resourceRef:
+          name: img

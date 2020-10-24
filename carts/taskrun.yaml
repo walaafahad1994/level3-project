@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: carts-taskrun
+spec:
+  serviceAccountName: pipeline-account 
+  taskRef:
+    name: carts
+  params:
+  - name: IMAGE
+    value: "walaafahad/carts"
+  resources:
+    inputs:
+    - name: level3-project
+      resourceRef:
+        name: carts-resource 

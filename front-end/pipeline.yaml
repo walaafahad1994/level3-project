@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: front-end-pipeline
+spec:
+  resources:
+    - name: final
+      type: git
+  tasks:
+    - name: build
+      taskRef:
+        name: build-front-end
+      resources:
+        inputs: 
+        - name: source-git
+          resource: final
+    - name: front-end-deploy-kubectl
+      runAfter: ["build"]
+      taskRef:
+        name: front-end-deploy-kubectl
+      resources:
+        inputs:
+        - name: source-git
+          resource: final

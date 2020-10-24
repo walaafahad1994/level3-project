@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+      name: img
+      namespace: test
+spec:
+      type: image
+      params:
+        - name: url
+          value: walaafahad/front-end

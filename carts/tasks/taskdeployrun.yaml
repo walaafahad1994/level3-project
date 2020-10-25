@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: carts-final-run
+spec:
+  serviceAccountName: 
+  taskRef:
+    name: carts-deploy-kubectl
+  resources:
+    inputs:
+      - name: level3-project
+        resourceSpec:
+          type: git
+          params:
+            - name: url
+              value: https://github.com/walaafahad1994/level3-project
+

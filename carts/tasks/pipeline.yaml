@@ -4,7 +4,7 @@ metadata:
   name: carts-pipeline
 spec:
   resources:
-    - name: level3-project
+    - name: carts-resource
       type: git
   tasks:
     - name: build
@@ -12,13 +12,13 @@ spec:
         name: carts
       resources:
         inputs: 
-        - name: level3-project
-          resource:  carts-resource
+        - name: carts-resource
+          resource: carts-resource
     - name: carts-deploy-kubectl
       runAfter: ["build"]
       taskRef:
         name: carts-deploy-kubectl
       resources:
         inputs:
-        - name: level3-project
-          resource:  carts-resource
+        - name: carts-resource
+          resource: carts-resource

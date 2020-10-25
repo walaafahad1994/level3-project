@@ -11,6 +11,6 @@ spec:
     value: "walaafahad/carts"
   resources:
     inputs:
-    - name: level3-project
+    - name: carts-resource
       resourceRef:
         name: carts-resource 

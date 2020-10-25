@@ -1,0 +1,32 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: orders-deploy-kubectl
+  serviceAccountName: order-svc-acc
+spec:
+  params:
+    - name: pathToYamlFile
+      type: string
+      description: The path to the yaml file to deploy within the git source
+      default: $(resources.inputs.order-resource.path)/orders/tasks/cart-svc.yaml
+    - name: pathToDbYamlFile
+      type: string
+      default:  $(resources.inputs.order-resource.path)/orders/tasks/cart-db-svc.yaml
+    - name: namespace
+      default: test
+  resources:
+    inputs:
+      - name: order-resource
+        type: git
+  steps:
+   - name: run-kubectl
+     image: lachlanevenson/k8s-kubectl
+     command: ["kubectl"]
+     args:
+       - "apply"
+       - "-f"
+       - "$(params.pathToDbYamlFile)"
+       - "-f"
+       - "$(params.pathToYamlFile)"
+       - "-n"
+       - "$(params.namespace)"

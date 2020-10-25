@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: order-final-run
+spec:
+  serviceAccountName: order-svc-acc
+  taskRef:
+    name: orders-deploy-kubectl
+  resources:
+    inputs:
+      - name: order-resource
+        resourceSpec:
+          type: git
+          params:
+            - name: url
+              value: https://github.com/walaafahad1994/level3-project
+

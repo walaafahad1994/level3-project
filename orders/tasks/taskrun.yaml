@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: order-taskrun
+spec:
+  serviceAccountName: order-svc-acc 
+  taskRef:
+    name: carts
+  params:
+  - name: IMAGE
+    value: "walaafahad/orders"
+  resources:
+    inputs:
+    - name: order-resource
+      resourceRef:
+        name: order-resource 

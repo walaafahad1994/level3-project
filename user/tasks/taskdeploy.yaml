@@ -16,7 +16,7 @@ spec:
       default: test
   resources:
     inputs:
-      - name: users-resource
+      - name: user-resource
         type: git
   steps:
    - name: run-kubectl

@@ -10,10 +10,10 @@ spec:
   params:
   - name: IMAGE
     description: Name (reference) of the image to build.
-    default: "walaafahad/carts"
+    default: "walaafahad/user"
   - name: DOCKERFILE
     description: Path to the Dockerfile to build.
-    default: /workspace/user-resource/carts/Dockerfile
+    default: /workspace/user-resource/user/Dockerfile
   - name: CONTEXT
     description: The build context used by Kaniko.
     default: /workspace/user-resource/user

@@ -34,7 +34,7 @@ ins-user:
  -f  ./user/tasks/taskdbdeploy.yaml -f   ./user/tasks/taskdeployrun.yaml -f ./user/tasks/pipeline.yaml \
 	-f ./user/tasks/pipelinerun.yaml -n test
 delete-user:
-	kubectl create -f ./user/sa.yaml -f ./user/role-bind.yaml -f ./user/piperes.yaml -f ./user/tasks/task.yaml \
+	kubectl delete -f ./user/sa.yaml -f ./user/role-bind.yaml -f ./user/piperes.yaml -f ./user/tasks/task.yaml \
 	-f ./user/tasks/taskrun.yaml -f ./user/tasks/taskdb.yaml -f ./user/tasks/taskdbrun.yaml  -f ./user/tasks/taskdeploy.yaml \
 		-f ./user/tasks/taskrun.yaml -f ./user/tasks/taskdeploy.yaml -f ./user/tasks/taskdeployrun.yaml -f  ./user/tasks/taskdbdeploy.yaml -f ./user/tasks/taskdeployrun.yaml \
   -f ./user/tasks/pipeline.yaml \

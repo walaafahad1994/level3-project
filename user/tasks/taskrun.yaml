@@ -11,6 +11,6 @@ spec:
     value: "walaafahad/users"
   resources:
     inputs:
-    - name: users-resource
+    - name: user-resource
       resourceRef:
         name: user-resource 

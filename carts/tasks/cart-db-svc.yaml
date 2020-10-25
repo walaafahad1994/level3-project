@@ -1,16 +1,19 @@
-apiVersion: extensions/v1beta1
+--- 
+apiVersion: apps/v1 
 kind: Deployment
 metadata:
   name: carts-db
   labels:
-    name: carts-db
-  namespace: test
+    app: carts-db
 spec:
-  replicas: 1
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: carts-db
   template:
     metadata:
       labels:
-        name: carts-db
+        app: carts-db
     spec:
       containers:
       - name: carts-db
@@ -37,16 +40,16 @@ spec:
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
-
 apiVersion: v1
 kind: Service
-    metadata:
-      name: carts-db
-      labels:
-        app: carts-db
-    spec:
-      ports:
-      - port: 27017
-        targetPort: 27017
-      selector:
-        app: carts-db
+metadata:
+  name: carts-db
+  labels:
+    app: carts-db
+spec:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  selector:
+    app: carts-db
+---

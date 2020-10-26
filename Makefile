@@ -22,23 +22,24 @@ carts-delete:
 	-f ./carts/tasks/pipelinerun.yaml -n test
 ins-order:
 	kubectl create -f ./orders/serviceAccount.yaml -f ./orders/role-bind.yaml -f ./orders/piperes.yaml -f ./orders/tasks/task.yaml \
-	-f ./orders/tasks/taskrun.yaml -f ./orders/tasks/taskdeploy.yaml -f ./orders/tasks/taskdeployrun.yaml -f ./orders/tasks/pipeline.yaml \
+	-f ./orders/tasks/taskrun.yaml -f ./orders/tasks/taskdeploy.yaml -f ./orders/tasks/taskdeployrun.yaml \
+-f ./orders/tasks/pipeline.yaml \
 	-f ./orders/tasks/pipelinerun.yaml -n test
 delete-order:
 	kubectl delete -f ./orders/serviceAccount.yaml -f ./orders/role-bind.yaml -f ./orders/piperes.yaml -f ./orders/tasks/task.yaml \
-	-f ./orders/tasks/taskrun.yaml -f ./orders/tasks/taskdeploy.yaml -f ./orders/tasks/taskdeployrun.yaml -f ./orders/tasks/pipeline.yaml \
+	-f ./orders/tasks/taskrun.yaml -f ./orders/tasks/taskdeploy.yaml -f ./orders/tasks/taskdeployrun.yaml \
+-f ./orders/tasks/pipeline.yaml \
 	-f ./orders/tasks/pipelinerun.yaml -n test
 ins-user:
 	kubectl create -f ./user/sa.yaml -f ./user/role-bind.yaml -f ./user/piperes.yaml -f ./user/tasks/task.yaml \
-	-f ./user/tasks/taskrun.yaml -f ./user/tasks/taskdb.yaml -f ./user/tasks/taskdbrun.yaml  -f ./user/tasks/taskdeploy.yaml 	-f ./user/tasks/taskrun.yaml -f ./user/tasks/taskdeploy.yaml -f ./user/tasks/taskdeployrun.yaml \
- -f  ./user/tasks/taskdbdeploy.yaml -f   ./user/tasks/taskdeployrun.yaml -f ./user/tasks/pipeline.yaml \
-	-f ./user/tasks/pipelinerun.yaml -n test
+	-f ./user/tasks/taskrun.yaml -f ./user/tasks/taskdb.yaml -f ./user/tasks/taskdbrun.yaml  -f ./user/tasks/taskdeploy.yaml \
+	 -f ./user/tasks/taskdeployrun.yaml -f  ./user/tasks/taskdbdeploy.yaml \
+		-f ./user/tasks/pipeline.yaml -f ./user/tasks/pipelinerun.yaml -n test
 delete-user:
 	kubectl delete -f ./user/sa.yaml -f ./user/role-bind.yaml -f ./user/piperes.yaml -f ./user/tasks/task.yaml \
 	-f ./user/tasks/taskrun.yaml -f ./user/tasks/taskdb.yaml -f ./user/tasks/taskdbrun.yaml  -f ./user/tasks/taskdeploy.yaml \
-		-f ./user/tasks/taskrun.yaml -f ./user/tasks/taskdeploy.yaml -f ./user/tasks/taskdeployrun.yaml -f  ./user/tasks/taskdbdeploy.yaml -f ./user/tasks/taskdeployrun.yaml \
-  -f ./user/tasks/pipeline.yaml \
-	-f ./user/tasks/pipelinerun.yaml -n test
+	 -f ./user/tasks/taskdeployrun.yaml -f  ./user/tasks/taskdbdeploy.yaml \
+		-f ./user/tasks/pipeline.yaml -f ./user/tasks/pipelinerun.yaml -n test
 
 
 

@@ -8,10 +8,7 @@ spec:
     - name: pathToYamlFile
       type: string
       description: The path to the yaml file to deploy within the git source
-      default: $(resources.inputs.user-resource.path)/user/tasks/user-svc-deb.yaml
-    - name: pathToDbYamlFile
-      type: string
-      default:  $(resources.inputs.user-resource.path)/user/tasks/userdb-svc.yaml
+      default: $(resources.inputs.user-resource.path)/user/tasks/user-svc-dep.yaml
     - name: namespace
       default: test
   resources:
@@ -24,8 +21,6 @@ spec:
      command: ["kubectl"]
      args:
        - "apply"
-       - "-f"
-       - "$(params.pathToDbYamlFile)"
        - "-f"
        - "$(params.pathToYamlFile)"
        - "-n"

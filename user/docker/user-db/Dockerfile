@@ -7,7 +7,7 @@ RUN mkdir -p /data/db-users \
     && chown -R mongodb:mongodb /data/db-users
 
 RUN su - mongodb && mongod --fork --logpath /var/log/mongodb.log --dbpath /data/db-users  \
-    && /tmp/scripts/mongo_create_insert.sh \
+    && chmod 700 /tmp/scripts/mongo_create_insert.sh \
     && mongod --dbpath /data/db-users  \
     && chown -R mongodb /data/db-users
 

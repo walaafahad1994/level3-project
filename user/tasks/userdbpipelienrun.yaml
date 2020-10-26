@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineRun
+metadata:
+  name: userdb-run
+spec:
+  serviceAccountName: user-svc-acc
+  pipelineRef:
+    name: userdb-pipeline
+  resources:
+    - name: user-resource
+      resourceRef:
+        name: user-resource
+

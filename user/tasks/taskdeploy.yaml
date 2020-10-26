@@ -8,10 +8,10 @@ spec:
     - name: pathToYamlFile
       type: string
       description: The path to the yaml file to deploy within the git source
-      default: $(resources.inputs.user-resource.path)/user/tasks/cart-svc.yaml
+      default: $(resources.inputs.user-resource.path)/user/tasks/user-svc-deb.yaml
     - name: pathToDbYamlFile
       type: string
-      default:  $(resources.inputs.user-resource.path)/user/tasks/cart-db-svc.yaml
+      default:  $(resources.inputs.user-resource.path)/user/tasks/userdb-svc.yaml
     - name: namespace
       default: test
   resources:

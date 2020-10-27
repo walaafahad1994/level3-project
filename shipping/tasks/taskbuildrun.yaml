@@ -6,10 +6,10 @@ metadata:
 spec:
   serviceAccountName: ship-svc-acc
   taskRef:
-    name: shipment
+    name: shipping
   params:
   - name: IMAGE
-    value: "walaafahad/ship"
+    value: "walaafahad/shipping"
   resources:
     inputs:
     - name: ship-resource

@@ -8,7 +8,7 @@ spec:
     - name: pathToYamlFile
       type: string
       description: The path to the yaml file to deploy within the git source
-      default: $(resources.inputs.ship-resource.path)/shipping/tasks/order-dep.yaml
+      default: $(resources.inputs.ship-resource.path)/shipping/tasks/ship-svc-dep.yaml
     - name: pathToDbYamlFile
       type: string
       default:  $(resources.inputs.ship-resource.path)/shipping/tasks/orderdb-dep.yaml

@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: ship-pipeline
+spec:
+  resources:
+    - name: ship-resource
+      type: git
+  tasks:
+    - name: build
+      taskRef:
+        name: shipping
+      resources:
+        inputs: 
+        - name: ship-resource
+          resource: ship-resource
+    - name: carts-deploy-kubectl
+      runAfter: ["build"]
+      taskRef:
+        name: ship-deploy-kubectl
+      resources:
+        inputs:
+        - name: ship-resource
+          resource: ship-resource

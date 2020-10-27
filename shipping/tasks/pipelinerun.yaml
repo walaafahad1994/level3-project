@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineRun
+metadata:
+  name: ship-run
+spec:
+  serviceAccountName: ship-svc-acc
+  pipelineRef:
+    name: carts-pipeline
+  resources:
+    - name: ship-resource
+      resourceRef:
+        name: ship-resource

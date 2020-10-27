@@ -5,7 +5,7 @@ metadata:
 spec:
   serviceAccountName: ship-svc-acc
   pipelineRef:
-    name: carts-pipeline
+    name: ship-pipeline
   resources:
     - name: ship-resource
       resourceRef:

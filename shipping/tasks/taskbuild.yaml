@@ -12,6 +12,7 @@ spec:
   - name: IMAGE
     description: Name (reference) of the image to build.
   - name: DOCKERFILE
+    default: "walaafahad/shipping"
     description: Path to the Dockerfile to build.
     default: /workspace/ship-resource/shipping/Dockerfile
   - name: CONTEXT

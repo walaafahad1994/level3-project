@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: carts-deploy-kubectl
-  serviceAccountName: cart-serviceAcc
+  serviceAccountName: cart-svc-acc
 spec:
   params:
     - name: pathToYamlFile

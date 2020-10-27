@@ -45,11 +45,11 @@ delete-user:
 ins-shipping:
 	kubectl create -f ./shipping/serviceAccount.yaml -f ./shipping/role-bind.yaml -f ./shipping/piperes.yaml \
 	-f ./shipping/tasks/taskbuild.yaml -f ./shipping/tasks/taskbuildrun.yaml -f ./shipping/tasks/taskdeploy.yaml \
-	-f ./shipping/tasks/taskdeployrun.yaml -f ./shipping/tasks/pipeline -f ./shipping/tasks/pipelinerun.yaml -n test
+	-f ./shipping/tasks/taskdeployrun.yaml -f ./shipping/tasks/pipeline.yaml -f ./shipping/tasks/pipelinerun.yaml -n test
 delete-shipping:
 	kubectl delete -f ./shipping/serviceAccount.yaml -f ./shipping/role-bind.yaml -f ./shipping/piperes.yaml \
 	-f ./shipping/tasks/taskbuild.yaml -f ./shipping/tasks/taskbuildrun.yaml -f ./shipping/tasks/taskdeploy.yaml \
-	-f ./shipping/tasks/taskdeployrun.yaml -f ./shipping/tasks/pipeline -f ./shipping/tasks/pipelinerun.yaml -n test
+	-f ./shipping/tasks/taskdeployrun.yaml -f ./shipping/tasks/pipeline.yaml -f ./shipping/tasks/pipelinerun.yaml -n test
 
 
 

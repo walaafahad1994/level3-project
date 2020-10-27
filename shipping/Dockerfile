@@ -3,7 +3,7 @@ FROM maven:3-jdk-11 as build
 WORKDIR /tmp
 COPY src /tmp/src
 COPY pom.xml /tmp/
-RUN --mount=type=cache,id=maven,target=/root/.m2,sharing=shared mvn clean package
+RUN -- mount=type=cache,id=maven,target=/root/.m2,sharing=shared mvn clean package
 
 FROM adoptopenjdk/openjdk11:alpine
 

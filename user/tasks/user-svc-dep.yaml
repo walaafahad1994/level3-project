@@ -36,6 +36,7 @@ metadata:
     app: user
   namespace: test
 spec:
+  type: NodePort
   ports:
   - port: 80
     targetPort: 80

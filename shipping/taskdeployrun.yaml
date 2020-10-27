@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: ship-final-run
+spec:
+  serviceAccountName: ship-svc-acc
+  taskRef:
+    name: ship-deploy-kubectl
+  resources:
+    inputs:
+      - name: ship-resource
+        resourceSpec:
+          type: git
+          params:
+            - name: url
+              value: https://github.com/walaafahad1994/level3-project

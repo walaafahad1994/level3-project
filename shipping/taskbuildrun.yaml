@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: ship-run
+  namespace: test
+spec:
+  serviceAccountName: ship-svc-acc
+  taskRef:
+    name: shipment
+  params:
+  - name: IMAGE
+    value: "walaafahad/ship"
+  resources:
+    inputs:
+    - name: ship-resource
+      resourceRef:
+        name: ship-resource

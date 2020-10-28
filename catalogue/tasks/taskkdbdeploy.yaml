@@ -1,15 +1,16 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: catlog-deploy-kubectl
+  name: catalog-db-deploy-kubectl
   serviceAccountName: catlog-svc-acc
 spec:
   params:
     - name: pathToYamlFile
       type: string
       description: The path to the yaml file to deploy within the git source
-      default: $(resources.inputs.catalogue-resource.path)/catalogue/tasks/catlog-svc.yaml
-      namespace: test
+      default: $(resources.inputs.catalogue-resource.path)/catalogue/tasks/catalogdb.yaml
+    - name: namespace
+      default: test
   resources:
     inputs:
       - name: catalogue-resource

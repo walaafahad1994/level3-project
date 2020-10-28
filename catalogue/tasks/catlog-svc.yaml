@@ -57,7 +57,7 @@ metadata:
   name: catalogue
   labels:
     name: catalogue
-  namespace: sock-shop
+  namespace: test
 spec:
   type: NodePort
   ports:

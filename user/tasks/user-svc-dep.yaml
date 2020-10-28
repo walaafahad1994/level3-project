@@ -9,22 +9,39 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: user
+      name: user
   template:
     metadata:
       labels:
-        app: user
+        name: user
     spec:
       containers:
       - name: user
         image: walaafahad/user
+        resources:
+          limits:
+            cpu: 300m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
         ports:
         - containerPort: 80
-        securityContext:
-          runAsUser: 0
         env:
-        - name: MONGO_HOST
+        - name: mongo
           value: user-db:27017
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 300
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 180
+          periodSeconds: 3
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -33,7 +50,7 @@ kind: Service
 metadata:
   name: user
   labels:
-    app: user
+    name: user
   namespace: test
 spec:
   type: NodePort
@@ -41,4 +58,4 @@ spec:
   - port: 80
     targetPort: 80
   selector:
-    app: user
+    name: user

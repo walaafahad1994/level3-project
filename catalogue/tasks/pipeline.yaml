@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: catlog-pipeline
+spec:
+  resources:
+    - name: catalogue-resource
+      type: git
+  tasks:
+    - name: build
+      taskRef:
+        name: catalogue-build
+      resources:
+        inputs: 
+        - name: catalogue-resource
+          resource: catalogue-resource
+    - name: catlog-deploy-kubectl
+      runAfter: ["build"]
+      taskRef:
+        name: catlog-deploy-kubectl
+      resources:
+        inputs:
+        - name: catalogue-resource
+          resource: catalogue-resource
+

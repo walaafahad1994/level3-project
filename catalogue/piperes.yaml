@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: ship-resource
+  name: catalogue-resource
   namespace: test
 spec:
   type: git

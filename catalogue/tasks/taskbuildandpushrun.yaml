@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: catalogue-build-run
+spec:
+  serviceAccountName: catlog-svc-acc
+  taskRef:
+    name: catalogue-build
+  params:
+  - name: IMAGE
+    value: "walaafahad/catalogue"
+  resources:
+    inputs:
+    - name: catalogue-resource
+      resourceRef:
+        name: catalogue-resource

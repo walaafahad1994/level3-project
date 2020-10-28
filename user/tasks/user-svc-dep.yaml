@@ -51,7 +51,6 @@ metadata:
   name: user
   labels:
     name: user
-  namespace: test
 spec:
   type: NodePort
   ports:

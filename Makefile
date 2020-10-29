@@ -3,13 +3,14 @@ secret-dockerhup:
 	kubectl create secret generic walaa-secret \
 	 --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
  	--type=kubernetes.io/dockerconfigjson -n test
-
+make-res-init:
+	kubectl create -f ./front-end/sa.yaml -f  ./front-end/role-bind.yaml -n test
 ins-front-end:
-	kubectl create -f ./front-end/sa.yaml -f  ./front-end/role-bind.yaml -f ./front-end/piperes.yaml -f ./front-end/task1front.yaml \
+	kubectl create -f ./front-end/piperes.yaml -f ./front-end/task1front.yaml \
 	-f ./front-end/task1frontend.yaml -f ./front-end/taskdepoy.yaml -f ./front-end/taskdeprun.yaml -f ./front-end/pipeline.yaml \
 	-f ./front-end/pipelinerun.yaml -n test
 delete-front-end:
-	kubectl delete -f ./front-end/sa.yaml -f  ./front-end/role-bind.yaml -f ./front-end/piperes.yaml -f ./front-end/task1front.yaml \
+	kubectl  -f ./front-end/piperes.yaml -f ./front-end/task1front.yaml \
 	-f ./front-end/task1frontend.yaml -f ./front-end/taskdepoy.yaml -f ./front-end/taskdeprun.yaml -f ./front-end/pipeline.yaml \
 	-f ./front-end/pipelinerun.yaml -n test
 ins-carts:

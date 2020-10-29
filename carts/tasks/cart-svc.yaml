@@ -1,19 +1,18 @@
---- 
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: carts
   labels:
-    app: carts
+    name: carts
 spec:
-  replicas: 1 
   selector:
     matchLabels:
-      app: carts
+      name: carts
+  replicas: 1
   template:
     metadata:
       labels:
-        app: carts
+        name: carts
     spec:
       containers:
       - name: carts
@@ -23,9 +22,15 @@ spec:
            value: zipkin.jaeger.svc.cluster.local
          - name: JAVA_OPTS
            value: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
-        securityContext:
-          runAsUser: 0
-          readOnlyRootFilesystem: true
+        resources:
+          limits:
+            cpu: 300m
+            memory: 500Mi
+          requests:
+            cpu: 300m
+            memory: 500Mi
+        ports:
+        - containerPort: 80
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume
@@ -47,17 +52,19 @@ spec:
             medium: Memory
       nodeSelector:
         beta.kubernetes.io/os: linux
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: carts
   labels:
-    app: carts
+    name: carts
 spec:
+  type: NodePort
   ports:
+    # the port that this service should serve on
   - port: 80
     targetPort: 80
   selector:
-    app: carts
----
+    name: carts

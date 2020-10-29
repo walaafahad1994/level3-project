@@ -9,7 +9,8 @@ spec:
       type: string
       description: The path to the yaml file to deploy within the git source
       default: $(resources.inputs.catalogue-resource.path)/catalogue/tasks/catlog-svc.yaml
-      namespace: test
+      name: namespace
+      default: test
   resources:
     inputs:
       - name: catalogue-resource

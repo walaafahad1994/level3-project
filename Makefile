@@ -46,13 +46,11 @@ delete-userdb:
 	kubectl delete  -f ./user/tasks/task-db/resource.yaml  -f ./user/tasks/task-db/task.yaml \
 	-f ./user/tasks/task-db/task-dep.yaml -f ./user/tasks/task-db/pipeline.yaml -f ./user/tasks/task-db/pipelinerun.yaml -n test
 ins-shipping:
-	kubectl create  -f ./shipping/piperes.yaml \
-	-f ./shipping/tasks/taskbuild.yaml -f ./shipping/tasks/taskbuildrun.yaml -f ./shipping/tasks/taskdeploy.yaml \
-	-f ./shipping/tasks/taskdeployrun.yaml -f ./shipping/tasks/pipeline.yaml -f ./shipping/tasks/pipelinerun.yaml -n test
+	kubectl create -f ./shipping/tasks/resource.yaml -f ./shipping/tasks/task.yaml -f ./shipping/tasks/taskdep.yaml \
+	-f  ./shipping/tasks/pipeline.yaml -f ./shipping/tasks/pipelinerun.yaml -n test
 delete-shipping:
-	kubectl delete  -f ./shipping/piperes.yaml \
-	-f ./shipping/tasks/taskbuild.yaml -f ./shipping/tasks/taskbuildrun.yaml -f ./shipping/tasks/taskdeploy.yaml \
-	-f ./shipping/tasks/taskdeployrun.yaml -f ./shipping/tasks/pipeline.yaml -f ./shipping/tasks/pipelinerun.yaml -n test
+	kubectl delete  -f ./shipping/tasks/resource.yaml -f ./shipping/tasks/task.yaml -f ./shipping/tasks/taskdep.yaml \
+	-f  ./shipping/tasks/pipeline.yaml -f ./shipping/tasks/pipelinerun.yaml -n test
 ins-catlog:
 	kubectl create -f ./catalogue/tasks/resource.yaml -f ./catalogue/tasks/task.yaml -f ./catalogue/tasks/task-dep.yaml -f ./catalogue/tasks/pipeline.yaml \
 	-f ./catalogue/tasks/pipelinerun.yaml -n test

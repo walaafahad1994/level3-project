@@ -17,13 +17,11 @@ delete-front-end:
 	-f ./front-end/task1frontend.yaml -f ./front-end/taskdepoy.yaml -f ./front-end/taskdeprun.yaml -f ./front-end/pipeline.yaml \
 	-f ./front-end/pipelinerun.yaml -n test
 ins-carts:
-	kubectl create  -f ./carts/piperes.yaml -f ./carts/tasks/task.yaml \
-	-f ./carts/tasks/taskrun.yaml -f ./carts/tasks/taskdeploy.yaml -f ./carts/tasks/taskdeployrun.yaml -f ./carts/tasks/pipeline.yaml \
-	-f ./carts/tasks/pipelinerun.yaml -n test
+	kubectl create  -f ./carts/tasks/resource.yaml  -f ./carts/tasks/task.yaml \
+	-f ./carts/tasks/taskdep.yaml -f ./carts/tasks/pipeline.yaml -f ./carts/tasks/pipelinerun.yaml    -n test
 delete-carts:
-		kubectl delete  -f ./carts/piperes.yaml -f ./carts/tasks/task.yaml \
-	-f ./carts/tasks/taskrun.yaml -f ./carts/tasks/taskdeploy.yaml -f ./carts/tasks/taskdeployrun.yaml -f ./carts/tasks/pipeline.yaml \
-	-f ./carts/tasks/pipelinerun.yaml -n test
+		kubectl delete  -f ./carts/tasks/resource.yaml  -f ./carts/tasks/task.yaml \
+	-f ./carts/tasks/taskdep.yaml -f ./carts/tasks/pipeline.yaml -f ./carts/tasks/pipelinerun.yaml    -n test
 ins-order:
 	kubectl create  -f ./orders/piperes.yaml -f ./orders/tasks/task.yaml \
 	-f ./orders/tasks/taskrun.yaml -f ./orders/tasks/taskdeploy.yaml -f ./orders/tasks/taskdeployrun.yaml -f ./orders/tasks/pipeline.yaml \

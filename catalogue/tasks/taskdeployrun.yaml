@@ -5,7 +5,7 @@ metadata:
 spec:
   serviceAccountName: front-svc-acc
   taskRef:
-    name:  catlog-deploy-kubectl
+    name:  catalogue-db-deploy
   resources:
     inputs:
       - name: catalogue-resource

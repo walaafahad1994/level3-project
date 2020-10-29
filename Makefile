@@ -1,5 +1,6 @@
 res-init:
-	kubectl create namespace test \
+	kubectl create namespace test 
+res-pre:
 	kubectl create -f ./front-end/sa.yaml -f  ./front-end/role-bind.yaml -n test
 secret-dockerhup:
 	docker login

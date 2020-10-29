@@ -67,6 +67,9 @@ delete-catlog:
 ins-catt:
 	kubectl create -f ./catalogue/tasks/task/task.yaml -f ./catalogue/tasks/task/run.yaml -f ./catalogue/tasks/task/pipeline.yaml \
 	-f ./catalogue/tasks/task/pipelinerun.yaml -n test
+del-catt:
+	kubectl delete -f ./catalogue/tasks/task/task.yaml -f ./catalogue/tasks/task/run.yaml -f ./catalogue/tasks/task/pipeline.yaml \
+	-f ./catalogue/tasks/task/pipelinerun.yaml -n test
 
 
 

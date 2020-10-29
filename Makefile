@@ -51,7 +51,6 @@ delete-shipping:
 	-f ./shipping/tasks/taskbuild.yaml -f ./shipping/tasks/taskbuildrun.yaml -f ./shipping/tasks/taskdeploy.yaml \
 	-f ./shipping/tasks/taskdeployrun.yaml -f ./shipping/tasks/pipeline.yaml -f ./shipping/tasks/pipelinerun.yaml -n test
 ins-catlog:
-
 		kubectl create -f ./catalogue/tasks/taskbuildandpush.yaml -f ./catalogue/tasks/taskbuildandpushrun.yaml.yaml -f ./catalogue/tasks/taskdeploy.yaml \
 	-f ./catalogue/tasks/taskdeployrun.yaml -f ./catalogue/tasks/taskdbbuild.yaml -f ./catalogue/tasks/taskdbbuildrun.yaml \
 	-f ./catalogue/tasks/taskkdbdeploy.yaml -f ./catalogue/tasks/taskdbdeprun.yaml -f ./catalogue/tasks/pipeline.yaml \

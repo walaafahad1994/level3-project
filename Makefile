@@ -65,10 +65,10 @@ delete-catlog:
 	-f ./catalogue/tasks/taskkdbdeploy.yaml -f ./catalogue/tasks/taskdbdeprun.yaml -f ./catalogue/tasks/pipeline.yaml \
 	-f ./catalogue/tasks/pipelinerun.yaml -f ./catalogue/tasks/pipelinedb.yaml -f ./catalogue/tasks/pipedbrun.yaml -n test
 ins-catt:
-	kubectl create -f ./catalogue/tasks/task/task.yaml -f ./catalogue/tasks/task/run.yaml -f ./catalogue/tasks/task/pipeline.yaml \
+	kubectl create -f ./catalogue/piperes.yaml -f ./catalogue/tasks/task/task.yaml -f ./catalogue/tasks/task/run.yaml -f ./catalogue/tasks/task/pipeline.yaml \
 	-f ./catalogue/tasks/task/pipelinerun.yaml -n test
 del-catt:
-	kubectl delete -f ./catalogue/tasks/task/task.yaml -f ./catalogue/tasks/task/run.yaml -f ./catalogue/tasks/task/pipeline.yaml \
+	kubectl delete -f ./catalogue/piperes.yaml -f ./catalogue/tasks/task/task.yaml -f ./catalogue/tasks/task/run.yaml -f ./catalogue/tasks/task/pipeline.yaml \
 	-f ./catalogue/tasks/task/pipelinerun.yaml -n test
 
 

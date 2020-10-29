@@ -6,6 +6,9 @@ metadata:
     name: catalogue
   namespace: test
 spec:
+  selector:
+    matchLabels:
+      name: catalogue
   replicas: 1
   template:
     metadata:

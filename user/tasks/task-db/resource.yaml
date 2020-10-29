@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: user-src
+  name: user-db-src
 spec:
   type: git
   params:

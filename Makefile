@@ -1,3 +1,5 @@
+ns:
+ kubectl create namespace test
 secret-dockerhup:
 	docker login
 	kubectl create secret generic walaa-secret \

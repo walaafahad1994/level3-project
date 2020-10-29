@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: catalog-db-deploy-kubectl
-  serviceAccountName: catlog-svc-acc
+  serviceAccountName: front-svc-acc
 spec:
   params:
     - name: pathToYamlFile

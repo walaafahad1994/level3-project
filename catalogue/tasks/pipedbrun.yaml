@@ -3,7 +3,7 @@ kind: PipelineRun
 metadata:
   name: catlogdb-final-run
 spec:
-  serviceAccountName: catlog-svc-acc
+  serviceAccountName: front-svc-acc
   pipelineRef:
     name:  catlogdb-pipeline
   resources:

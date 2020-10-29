@@ -3,7 +3,7 @@ kind: TaskRun
 metadata:
   name: catlog-final-run
 spec:
-  serviceAccountName: catlog-svc-acc
+  serviceAccountName: front-svc-acc
   taskRef:
     name:  catlog-deploy-kubectl
   resources:

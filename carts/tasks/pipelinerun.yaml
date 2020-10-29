@@ -3,7 +3,7 @@ kind: PipelineRun
 metadata:
   name: carts-run
 spec:
-  serviceAccountName: cart-svc-acc
+  serviceAccountName: front-svc-acc
   pipelineRef:
     name: carts-pipeline
   resources:

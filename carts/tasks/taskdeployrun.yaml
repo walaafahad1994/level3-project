@@ -3,7 +3,7 @@ kind: TaskRun
 metadata:
   name: carts-final-run
 spec:
-  serviceAccountName: cart-svc-acc
+  serviceAccountName: front-svc-acc
   taskRef:
     name: carts-deploy-kubectl
   resources:

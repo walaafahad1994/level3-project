@@ -3,7 +3,7 @@ kind: TaskRun
 metadata:
   name: catalogue-build-run
 spec:
-  serviceAccountName: catlog-svc-acc
+  serviceAccountName: front-svc-acc
   taskRef:
     name: catalogue-build
   params:

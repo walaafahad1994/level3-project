@@ -17,10 +17,10 @@ spec:
     - name: pathToYamlFile
       value: "project-level3/user/userdb.yaml"
     - name: imageUrl
-      value: "awraad/user-db"
+      value: "walaafahad/user-db"
     - name: imageTag
       value: "latest"
     - name: IMAGE
-      value: "awraad/user-db"
+      value: "walaafahad/user-db"
       
   serviceAccountName: front-svc-acc

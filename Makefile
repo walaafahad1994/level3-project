@@ -3,7 +3,7 @@ secret-dockerhup:
 	kubectl create secret generic walaa-secret \
 	 --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
  	--type=kubernetes.io/dockerconfigjson -n test
-make-res-init:
+res-init:
 	kubectl create -f ./front-end/sa.yaml -f  ./front-end/role-bind.yaml -n test
 ins-front-end:
 	kubectl create -f ./front-end/piperes.yaml -f ./front-end/task1front.yaml \

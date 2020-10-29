@@ -64,7 +64,7 @@ ins-catlogdb:
 	kubectl create -f ./catalogue/tasks/task-db/resource.yaml -f ./catalogue/tasks/task-db/task.yaml -f ./catalogue/tasks/task-db/task-dep.yaml -f ./catalogue/tasks/task-db/pipeline.yaml \
 	-f ./catalogue/tasks/task-db/pipelinerun.yaml -n test
 del-catlogdb:
-	kubectl delete f ./catalogue/tasks/task-db/resource.yaml -f ./catalogue/tasks/task-db/task.yaml -f ./catalogue/tasks/task-db/task-dep.yaml -f ./catalogue/tasks/task-db/pipeline.yaml \
+	kubectl delete -f ./catalogue/tasks/task-db/resource.yaml -f ./catalogue/tasks/task-db/task.yaml -f ./catalogue/tasks/task-db/task-dep.yaml -f ./catalogue/tasks/task-db/pipeline.yaml \
 	-f ./catalogue/tasks/task-db/pipelinerun.yaml -n test
 
 

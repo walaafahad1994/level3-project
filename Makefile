@@ -38,6 +38,13 @@ ins-user:
 delete-user:
 	kubectl delete  -f ./user/tasks/resource.yaml  -f ./user/tasks/task.yaml \
 	-f ./user/tasks/task-dep.yaml -f ./user/tasks/pipeline.yaml -f ./user/tasks/pipelinerun.yaml -n test
+
+ins-userdb:
+	kubectl create  -f ./user/tasks/task-db/resource.yaml  -f ./user/tasks/task-db/task.yaml \
+	-f ./user/tasks/task-db/task-dep.yaml -f ./user/tasks/task-db/pipeline.yaml -f ./user/tasks/task-db/pipelinerun.yaml    -n test
+delete-userdb:
+	kubectl delete  -f ./user/tasks/task-db/resource.yaml  -f ./user/tasks/task-db/task.yaml \
+	-f ./user/tasks/task-db/task-dep.yaml -f ./user/tasks/task-db/pipeline.yaml -f ./user/tasks/task-db/pipelinerun.yaml -n test
 ins-shipping:
 	kubectl create  -f ./shipping/piperes.yaml \
 	-f ./shipping/tasks/taskbuild.yaml -f ./shipping/tasks/taskbuildrun.yaml -f ./shipping/tasks/taskdeploy.yaml \

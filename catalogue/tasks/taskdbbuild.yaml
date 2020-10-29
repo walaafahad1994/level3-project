@@ -13,10 +13,10 @@ spec:
     default: "walaafahad/catalogue-db"
   - name: DOCKERFILE
     description: Path to the Dockerfile to build.
-    default: /workspace/catalogue-resource/catalogue-db/Dockerfile
+    default: $(resources.inputs.catalogue-resource.path)/catalogue-db/Dockerfile
   - name: CONTEXT
     description: The build context used by Kaniko.
-    default: /workspace/catalogue-resource/catalogue-db
+    default: $(resources.inputs.catalogue-resource.path)/catalogue-db
   - name: EXTRA_ARGS
     default: ""
   - name: BUILDER_IMAGE

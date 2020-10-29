@@ -15,7 +15,7 @@ spec:
     - name: DOCKERFILE
       value: "/workspace/project-level3/user/Dockerfile"
     - name: pathToYamlFile
-      value: "project-level3/user/userdep.yaml"
+      value: "project-level3/user/tasks/userdep.yaml"
     - name: imageUrl
       value: "walaafahad/user"
     - name: imageTag

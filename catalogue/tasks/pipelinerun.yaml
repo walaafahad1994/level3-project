@@ -1,12 +1,26 @@
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: catlog-final-run
+  name: catalogue-pipelinerun 
 spec:
-  serviceAccountName: catlog-svc-acc
   pipelineRef:
-    name: catlog-pipeline
+    name: catalogue-pipeline
   resources:
-    - name: catalogue-resource
+    - name: project-level3
       resourceRef:
-        name: catalogue-resource
+        name: catalogue-src
+  params:
+    - name: CONTEXT
+      value: "/workspace/project-level3/catalogue"
+    - name: DOCKERFILE
+      value: "/workspace/project-level3/catalogue/Dockerfile"
+    - name: pathToYamlFile
+      value: "project-level3/catalogue/tasks/catlog-svc.yaml"
+    - name: imageUrl
+      value: "walaafahad/catalogue"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "walaafahad/catalogue"
+      
+  serviceAccountName: front-svc-acc

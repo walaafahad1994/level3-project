@@ -55,21 +55,11 @@ delete-shipping:
 	-f ./shipping/tasks/taskbuild.yaml -f ./shipping/tasks/taskbuildrun.yaml -f ./shipping/tasks/taskdeploy.yaml \
 	-f ./shipping/tasks/taskdeployrun.yaml -f ./shipping/tasks/pipeline.yaml -f ./shipping/tasks/pipelinerun.yaml -n test
 ins-catlog:
-		kubectl create  -f ./catalogue/piperes.yaml -f ./catalogue/tasks/ -f ./catalogue/tasks/taskbuildandpushrun.yaml \
-		-f ./catalogue/tasks/taskdeploy.yaml -f ./catalogue/tasks/taskdeployrun.yaml -f ./catalogue/tasks/taskdbbuild.yaml -f ./catalogue/tasks/taskdbbuildrun.yaml \
-	-f ./catalogue/tasks/taskkdbdeploy.yaml -f ./catalogue/tasks/taskdbdeprun.yaml -f ./catalogue/tasks/pipeline.yaml \
-	-f ./catalogue/tasks/pipelinerun.yaml -f ./catalogue/tasks/pipelinedb.yaml -f ./catalogue/tasks/pipedbrun.yaml -n test
-delete-catlog:
-		kubectl delete -f ./catalogue/piperes.yaml -f ./catalogue/tasks/taskbuildandpush.yaml -f ./catalogue/tasks/taskbuildandpushrun.yaml -f ./catalogue/tasks/taskdeploy.yaml \
-	-f ./catalogue/tasks/taskdeployrun.yaml -f ./catalogue/tasks/taskdbbuild.yaml -f ./catalogue/tasks/taskdbbuildrun.yaml \
-	-f ./catalogue/tasks/taskkdbdeploy.yaml -f ./catalogue/tasks/taskdbdeprun.yaml -f ./catalogue/tasks/pipeline.yaml \
-	-f ./catalogue/tasks/pipelinerun.yaml -f ./catalogue/tasks/pipelinedb.yaml -f ./catalogue/tasks/pipedbrun.yaml -n test
-ins-catt:
-	kubectl create -f ./catalogue/piperes.yaml -f ./catalogue/tasks/task/task.yaml -f ./catalogue/tasks/task/run.yaml -f ./catalogue/tasks/task/pipeline.yaml \
-	-f ./catalogue/tasks/task/pipelinerun.yaml -n test
-del-catt:
-	kubectl delete -f ./catalogue/piperes.yaml -f ./catalogue/tasks/task/task.yaml -f ./catalogue/tasks/task/run.yaml -f ./catalogue/tasks/task/pipeline.yaml \
-	-f ./catalogue/tasks/task/pipelinerun.yaml -n test
+	kubectl create -f ./catalogue/tasks/resource.yaml -f ./catalogue/tasks/task.yaml -f ./catalogue/tasks/task-dep.yaml -f ./catalogue/tasks/pipeline.yaml \
+	-f ./catalogue/tasks/pipelinerun.yaml -n test
+del-catlog:
+	kubectl delete -f ./catalogue/tasks/resource.yaml -f ./catalogue/tasks/task.yaml -f ./catalogue/tasks/task-dep.yaml -f ./catalogue/tasks/pipeline.yaml \
+	-f ./catalogue/tasks/pipelinerun.yaml -n test
 
 
 

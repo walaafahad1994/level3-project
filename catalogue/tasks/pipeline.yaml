@@ -17,7 +17,7 @@ spec:
     - name: catlog-deploy-kubectl
       runAfter: ["build"]
       taskRef:
-        name: catlog-deploy-kubectl
+        name: catalogue-deploy
       resources:
         inputs:
         - name: catalogue-resource

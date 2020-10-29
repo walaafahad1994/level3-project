@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: front-end-deploy-kubectl
-  serviceAccountName: sock-shop
+  serviceAccountName: front-svc-acc
 spec:
   params:
     - name: pathToYamlFile

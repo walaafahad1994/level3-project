@@ -3,6 +3,6 @@ kind: TaskRun
 metadata:
   name: front-end-deploy-run
 spec:
-  serviceAccountName: sock-shop
+  serviceAccountName: front-svc-acc
   taskRef:
     name: front-end-deploy-kubectl

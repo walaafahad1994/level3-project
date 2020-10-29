@@ -3,7 +3,7 @@ kind: PipelineRun
 metadata:
   name: front-end-run
 spec:
-  serviceAccountName: sock-shop
+  serviceAccountName: front-svc-acc
   pipelineRef:
     name: front-end-pipeline 
   resources:

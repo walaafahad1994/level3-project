@@ -4,7 +4,7 @@ metadata:
   name: front-end-run
   namespace: test
 spec:
-  serviceAccountName: sock-shop
+  serviceAccountName: front-svc-acc
   taskRef:
     name: build-front-end
   resources:

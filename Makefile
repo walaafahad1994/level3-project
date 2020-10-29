@@ -54,12 +54,12 @@ inst-catlog:
 	k create -f ./catalogue/tasks/taskbuildandpush.yaml -f ./catalogue/tasks/buildandpushrun.yaml -f ./catalogue/tasks/taskdeploy.yaml \
 	-f ./catalogue/tasks/taskdeployrun.yaml -f ./catalogue/tasks/taskdbbuild.yaml -f ./catalogue/tasks/taskdbrun.yaml \
 	-f ./catalogue/tasks/taskdbdeploy.yaml -f ./catalogue/tasks/taskdeprun.yaml -f ./catalogue/tasks/pipeline.yaml \
-	-f ./catalogue/tasks/pipelinerun.yaml -f ./catalogue/tasks/pipelinedb.yaml -f -n test
+	-f ./catalogue/tasks/pipelinerun.yaml -f ./catalogue/tasks/pipelinedb.yaml -f ./catalogue/tasks/pipedbrun.yaml -n test
 delete-catlog:
 	k delete -f ./catalogue/tasks/taskbuildandpush.yaml -f ./catalogue/tasks/buildandpushrun.yaml -f ./catalogue/tasks/taskdeploy.yaml \
 	-f ./catalogue/tasks/taskdeployrun.yaml -f ./catalogue/tasks/taskdbbuild.yaml -f ./catalogue/tasks/taskdbrun.yaml \
 	-f ./catalogue/tasks/taskdbdeploy.yaml -f ./catalogue/tasks/taskdeprun.yaml -f ./catalogue/tasks/pipeline.yaml \
-	-f ./catalogue/tasks/pipelinerun.yaml -f ./catalogue/tasks/pipelinedb.yaml -f -n test
+	-f ./catalogue/tasks/pipelinerun.yaml -f ./catalogue/tasks/pipelinedb.yaml -f ./catalogue/tasks/pipedbrun.yaml -n test
 
 
 

@@ -1,12 +1,26 @@
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: ship-run
+  name: shipping-pipelinerun 
 spec:
-  serviceAccountName: front-svc-acc
   pipelineRef:
-    name: ship-pipeline
+    name: shipping-pipeline
   resources:
-    - name: ship-resource
+    - name: project-level3
       resourceRef:
-        name: ship-resource
+        name: shipping-src
+  params:
+    - name: CONTEXT
+      value: "/workspace/project-level3/shipping"
+    - name: DOCKERFILE
+      value: "/workspace/project-level3/shipping/Dockerfile"
+    - name: pathToYamlFile
+      value: "project-level3/shipping/ship-svc-dep.yaml"
+    - name: imageUrl
+      value: "walaafahad/shipping"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "walaafahad/shipping"
+      
+  serviceAccountName: front-svc-acc

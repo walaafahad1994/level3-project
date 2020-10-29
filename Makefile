@@ -1,12 +1,12 @@
-ns:
- 	kubectl create namespace test
+res-init:
+	kubectl create namespace test \
+	kubectl create -f ./front-end/sa.yaml -f  ./front-end/role-bind.yaml -n test
 secret-dockerhup:
 	docker login
 	kubectl create secret generic walaa-secret \
 	 --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
  	--type=kubernetes.io/dockerconfigjson -n test
-res-init:
-	kubectl create -f ./front-end/sa.yaml -f  ./front-end/role-bind.yaml -n test
+
 ins-front-end:
 	kubectl create -f ./front-end/piperes.yaml -f ./front-end/task1front.yaml \
 	-f ./front-end/task1frontend.yaml -f ./front-end/taskdepoy.yaml -f ./front-end/taskdeprun.yaml -f ./front-end/pipeline.yaml \

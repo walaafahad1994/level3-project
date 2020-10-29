@@ -33,19 +33,11 @@ delete-order:
 	-f ./orders/tasks/taskrun.yaml -f ./orders/tasks/taskdeploy.yaml -f ./orders/tasks/taskdeployrun.yaml -f ./orders/tasks/pipeline.yaml \
 	-f ./orders/tasks/pipelinerun.yaml -n test
 ins-user:
-	kubectl create  -f ./user/piperes.yaml -f ./user/tasks/task.yaml \
-	-f ./user/tasks/taskrun.yaml -f ./user/tasks/taskdb.yaml  -f ./user/tasks/taskdeploy.yaml \
-	 -f ./user/tasks/taskdeployrun.yaml -f  ./user/tasks/taskdbdeploy.yaml \
-		-f ./user/tasks/taskdbdeprun.yaml -f ./user/tasks/taskdbrun.yaml -f ./user/tasks/pipeline.yaml \
-		 -f ./user/tasks/pipelinerun.yaml -f ./user/tasks/userdbpipeline.yaml  \
-		-f ./user/tasks/userdbpipelienrun.yaml   -n test
+	kubectl create  -f ./user/tasks/resource.yaml  -f ./user/tasks/task.yaml \
+	-f ./user/tasks/task-dep.yaml -f ./user/tasks/pipeline.yaml -f ./user/tasks/pipelinerun.yaml    -n test
 delete-user:
-	kubectl delete  -f ./user/piperes.yaml -f ./user/tasks/task.yaml \
-	-f ./user/tasks/taskrun.yaml -f ./user/tasks/taskdb.yaml   -f ./user/tasks/taskdeploy.yaml \
-	 -f ./user/tasks/taskdeployrun.yaml -f  ./user/tasks/taskdbdeploy.yaml \
-		-f ./user/tasks/taskdbdeprun.yaml -f ./user/tasks/taskdbrun.yaml -f ./user/tasks/pipeline.yaml \
-		 -f ./user/tasks/pipelinerun.yaml -f ./user/tasks/userdbpipeline.yaml  \
-		-f ./user/tasks/userdbpipelienrun.yaml   -n test
+	kubectl delete  -f ./user/tasks/resource.yaml  -f ./user/tasks/task.yaml \
+	-f ./user/tasks/task-dep.yaml -f ./user/tasks/pipeline.yaml -f ./user/tasks/pipelinerun.yaml
 ins-shipping:
 	kubectl create  -f ./shipping/piperes.yaml \
 	-f ./shipping/tasks/taskbuild.yaml -f ./shipping/tasks/taskbuildrun.yaml -f ./shipping/tasks/taskdeploy.yaml \

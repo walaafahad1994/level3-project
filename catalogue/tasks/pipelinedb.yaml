@@ -9,7 +9,7 @@ spec:
   tasks:
     - name: build
       taskRef:
-        name: catalogue-db
+        name: catalogue-db-build
       resources:
         inputs: 
         - name: catalogue-resource

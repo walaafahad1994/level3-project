@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: catalogue-db-runner
+  name: catalogue-db-build-runner
 spec:
   serviceAccountName: front-svc-acc
   taskRef:
-    name: catalogue-db
+    name:catalogue-db-build
   params:
   - name: IMAGE
     value: "walaafahad/catalogue-db"

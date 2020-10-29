@@ -60,6 +60,13 @@ ins-catlogdb:
 del-catlogdb:
 	kubectl delete -f ./catalogue/tasks/task-db/resource.yaml -f ./catalogue/tasks/task-db/task.yaml -f ./catalogue/tasks/task-db/task-dep.yaml -f ./catalogue/tasks/task-db/pipeline.yaml \
 	-f ./catalogue/tasks/task-db/pipelinerun.yaml -n test
+ins-queue-master:
+kubectl create -f ./queue-master/tasks/resource.yaml -f ./queue-master/tasks/task.yaml -f ./queue-master/tasks/task-dep.yaml -f ./queue-master/tasks/pipeline.yaml \
+	-f ./queue-master/tasks/pipelinerun.yaml -n test
+
+delete-queue-master:
+	kubectl delete -f ./queue-master/tasks/resource.yaml -f ./queue-master/tasks/task.yaml -f ./queue-master/tasks/task-dep.yaml -f ./queue-master/tasks/pipeline.yaml \
+	-f ./queue-master/tasks/pipelinerun.yaml -n test
 
 
 

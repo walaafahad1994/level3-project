@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineRun
+metadata:
+  name: catlogdb-final-run
+spec:
+  serviceAccountName: catlog-svc-acc
+  pipelineRef:
+    name:  catlogdb-pipeline
+  resources:
+    - name: catalogue-resource
+      resourceRef:
+        name: catalogue-resource

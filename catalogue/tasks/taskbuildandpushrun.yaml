@@ -5,7 +5,7 @@ metadata:
 spec:
   serviceAccountName: front-svc-acc
   taskRef:
-    name: catalogue-build
+    name: catalogue
   params:
   - name: IMAGE
     value: "walaafahad/catalogue"

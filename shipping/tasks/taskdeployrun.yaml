@@ -3,7 +3,7 @@ kind: TaskRun
 metadata:
   name: ship-final-run
 spec:
-  serviceAccountName: ship-svc-acc
+  serviceAccountName: front-svc-acc
   taskRef:
     name: ship-deploy-kubectl
   resources:

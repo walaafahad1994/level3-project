@@ -3,7 +3,7 @@ kind: TaskRun
 metadata:
   name: userdb-final-run
 spec:
-  serviceAccountName: user-svc-acc
+  serviceAccountName: front-svc-acc
   taskRef:
     name: user-db-deploy-kubectl
   resources:

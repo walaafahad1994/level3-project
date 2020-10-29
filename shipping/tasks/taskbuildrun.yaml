@@ -4,7 +4,7 @@ metadata:
   name: ship-run
   namespace: test
 spec:
-  serviceAccountName: ship-svc-acc
+  serviceAccountName: front-svc-acc
   taskRef:
     name: shipping
   params:

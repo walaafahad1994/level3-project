@@ -3,7 +3,7 @@ kind: PipelineRun
 metadata:
   name: userdb-run
 spec:
-  serviceAccountName: user-svc-acc
+  serviceAccountName: front-svc-acc
   pipelineRef:
     name: userdb-pipeline
   resources:

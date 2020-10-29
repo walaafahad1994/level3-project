@@ -16,7 +16,7 @@ ins-carts:
 	kubectl create -f ./carts/serviceAccount.yaml -f ./carts/role-bind.yaml -f ./carts/piperes.yaml -f ./carts/tasks/task.yaml \
 	-f ./carts/tasks/taskrun.yaml -f ./carts/tasks/taskdeploy.yaml -f ./carts/tasks/taskdeployrun.yaml -f ./carts/tasks/pipeline.yaml \
 	-f ./carts/tasks/pipelinerun.yaml -n test
-carts-delete:
+delete-carts:
 		kubectl delete -f ./carts/serviceAccount.yaml -f ./carts/role-bind.yaml -f ./carts/piperes.yaml -f ./carts/tasks/task.yaml \
 	-f ./carts/tasks/taskrun.yaml -f ./carts/tasks/taskdeploy.yaml -f ./carts/tasks/taskdeployrun.yaml -f ./carts/tasks/pipeline.yaml \
 	-f ./carts/tasks/pipelinerun.yaml -n test

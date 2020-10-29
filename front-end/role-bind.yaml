@@ -1,22 +1,23 @@
-kind: Role
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
 metadata:
-  name: sock-shop-role
+  name: role-socks-shop
 rules:
-- apiGroups: ["serving.knative.dev", "apps", "", "extensions"]
-  resources: ["services", "deployments", "deployments.apps", "replicasets", "pods", "ingresses"]
-  verbs: ["get", "create", "update", "patch"]
+- apiGroups: ["", "extensions", "apps", "networking.k8s.io"]
+  resources: ["deployments", "deployments.apps", "replicasets", "pods", "services", "ingresses"]
+  verbs: ["*"]
 
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: sock-shop-role-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: sock-shop-role
 subjects:
 - kind: ServiceAccount
   name: front-svc-acc
+  namespace: test

@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: user
-        image: awraad/user
+        image: walaafahad/user
         resources:
           limits:
             cpu: 300m

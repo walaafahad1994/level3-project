@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: catalogue-deploy
+  name: catalogue-db-deploy
 spec:
   resources:
     inputs:
-    - name: catalogue-resource
+    - name: project-level3
       type: git
   params:
   - name: pathToYamlFile

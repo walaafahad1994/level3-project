@@ -1,12 +1,26 @@
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: user-run
+  name: user-pipelinerun 
 spec:
-  serviceAccountName: front-svc-acc
   pipelineRef:
     name: user-pipeline
   resources:
-    - name: user-resource
+    - name: project-level3
       resourceRef:
-        name: user-resource
+        name: user-src
+  params:
+    - name: CONTEXT
+      value: "/workspace/project-level3/user"
+    - name: DOCKERFILE
+      value: "/workspace/project-level3/user/Dockerfile"
+    - name: pathToYamlFile
+      value: "project-level3/user/userdep.yaml"
+    - name: imageUrl
+      value: "walaafahad/user"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "walaafahad/user"
+      
+  serviceAccountName: front-svc-acc

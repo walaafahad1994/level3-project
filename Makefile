@@ -56,7 +56,7 @@ ins-catlog:
 	-f ./catalogue/tasks/taskkdbdeploy.yaml -f ./catalogue/tasks/taskdbdeprun.yaml -f ./catalogue/tasks/pipeline.yaml \
 	-f ./catalogue/tasks/pipelinerun.yaml -f ./catalogue/tasks/pipelinedb.yaml -f ./catalogue/tasks/pipedbrun.yaml -n test
 delete-catlog:
-		kubectl delete -f ./catalogue/tasks/taskbuildandpush.yaml -f ./catalogue/tasks/taskbuildandpushrun.yaml.yaml -f ./catalogue/tasks/taskdeploy.yaml \
+		kubectl delete -f ./catalogue/tasks/taskbuildandpush.yaml -f ./catalogue/tasks/taskbuildandpushrun.yaml -f ./catalogue/tasks/taskdeploy.yaml \
 	-f ./catalogue/tasks/taskdeployrun.yaml -f ./catalogue/tasks/taskdbbuild.yaml -f ./catalogue/tasks/taskdbbuildrun.yaml \
 	-f ./catalogue/tasks/taskkdbdeploy.yaml -f ./catalogue/tasks/taskdbdeprun.yaml -f ./catalogue/tasks/pipeline.yaml \
 	-f ./catalogue/tasks/pipelinerun.yaml -f ./catalogue/tasks/pipelinedb.yaml -f ./catalogue/tasks/pipedbrun.yaml -n test

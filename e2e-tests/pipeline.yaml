@@ -56,7 +56,6 @@ spec:
       name: deploy-prod-task
     runAfter:
       - build-push-image
-      - run-test
    resources:
       inputs:
         - name: project-level3

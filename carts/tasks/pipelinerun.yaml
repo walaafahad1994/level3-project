@@ -11,7 +11,7 @@ spec:
         name: carts-src
   params:
     - name: CONTEXT
-      value: "/workspace/project-level3/carts"
+      value: "/workspace/project-level3/carts/"
     - name: DOCKERFILE
       value: "/workspace/project-level3/carts/Dockerfile"
     - name: pathToYamlFile

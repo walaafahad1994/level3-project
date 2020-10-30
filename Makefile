@@ -1,4 +1,4 @@
-all:
+init:
 	 cd ../k8s-sandbox/ && make up 
 res-init:
 	kubectl create namespace test 
@@ -75,6 +75,8 @@ ins-pyamnt:
 delete-pyamnt:
 	kubectl delete -f ./payment/tasks/resource.yaml -f ./payment/tasks/task.yaml -f ./payment/tasks/taskdep.yaml -f ./payment/tasks/pipeline.yaml \
 	-f ./payment/tasks/pipelinerun.yaml -n test
+install-graf:
+	cd ../k8s-sandbox/ && make install-grafana
 
 
 

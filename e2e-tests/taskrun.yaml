@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: test-task
+spec:
+  taskRef:
+    name: build-push-test
+  serviceAccountName: front-svc-acc
+  resources:
+  - name: level3-project
+    resourceSpec:
+      type: git
+      params:
+      - name: revision
+        value: main
+      - name: url
+        value: https://github.com/walaafahad1994/level3-project

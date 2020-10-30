@@ -1,3 +1,5 @@
+all:
+	cd .. && cd k8s-sandbox/ && make up 
 res-init:
 	kubectl create namespace test 
 res-pre:

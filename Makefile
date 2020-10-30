@@ -83,5 +83,6 @@ ins-e2e:
 
 delete-e2e:
 	kubectl delete  -f./e2e-js-test/resource.yaml -f./e2e-js-test/task.yaml -f./e2e-js-test/taskdep.yaml -f./e2e-js-test/taskrun.yaml -f./e2e-js-test/pipeline.yaml -f./e2e-js-test/pipelinerun.yaml -n test
-
+ins-elf:
+	cd ../k8s-sandbox/ &&	make install-logging
 

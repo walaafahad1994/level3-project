@@ -77,7 +77,8 @@ delete-pyamnt:
 	-f ./payment/tasks/pipelinerun.yaml -n test
 install-graf:
 	cd ../k8s-sandbox/ && make install-grafana
-
+ins-e2e:
+	kubectl create  -f./e2e-test/task.yaml -f./e2e-test/task.yaml -n test
 
 
 

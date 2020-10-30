@@ -10,6 +10,6 @@ spec:
   steps:
   - name: run-test
     image: walaafahad/e2e-js-test
-    workingDir: /workspace/level3-project/src
+    workingDir: /workspace/level3-project/e2e-js-test
     command: ["/bin/sh"]
     args: ["-c", "/e2e-js-test/runner.sh"]

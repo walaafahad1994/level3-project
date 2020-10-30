@@ -3,7 +3,7 @@ WORKDIR /carts
 
 copy . /carts
 
-RUN mvn clean package
+RUN mvn clean package -U
 
 FROM adoptopenjdk/openjdk11:alpine
 

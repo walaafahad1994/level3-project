@@ -17,6 +17,6 @@ spec:
     - name: IMAGE
       value: "walaafahad/e2e-js-test"
     - name: pathToYamlFile
-      value: "level3-project/dep-services.yaml"
+      value: "level3-project/depallsvc.yaml"
       
   serviceAccountName: front-svc-acc

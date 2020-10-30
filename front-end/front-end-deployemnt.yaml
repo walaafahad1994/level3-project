@@ -54,3 +54,7 @@ spec:
   selector:
     name: front-end
 ---
+<<<<<<< HEAD
+=======
+
+>>>>>>> 37ed46678fdd086026cd45138f9cede704171878

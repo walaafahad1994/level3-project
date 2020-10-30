@@ -15,7 +15,7 @@ spec:
     - name: DOCKERFILE
       value: "/workspace/project-level3/payment/Dockerfile"
     - name: pathToYamlFile
-      value: "project-level3/payment/pymdepl.yaml"
+      value: "project-level3/payment/tasks/pymdepl.yaml"
     - name: imageUrl
       value: "walaafahad/payment"
     - name: imageTag

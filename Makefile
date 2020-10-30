@@ -69,6 +69,12 @@ ins-queue-master:
 delete-queue-master:
 	kubectl delete -f ./queue-master/tasks/resource.yaml -f ./queue-master/tasks/task.yaml -f ./queue-master/tasks/taskdep.yaml -f ./queue-master/tasks/pipeline.yaml \
 	-f ./queue-master/tasks/pipelinerun.yaml -n test
+ins-pyamnt:
+	kubectl create -f ./payment/tasks/resource.yaml -f ./payment/tasks/task.yaml -f ./payment/tasks/taskdep.yaml -f ./payment/tasks/pipeline.yaml \
+	-f ./payment/tasks/pipelinerun.yaml -n test
+delete-pyamnt:
+	kubectl delete -f ./payment/tasks/resource.yaml -f ./payment/tasks/task.yaml -f ./payment/tasks/taskdep.yaml -f ./payment/tasks/pipeline.yaml \
+	-f ./payment/tasks/pipelinerun.yaml -n test
 
 
 

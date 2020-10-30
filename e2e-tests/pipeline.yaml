@@ -9,16 +9,16 @@ spec:
   params:
     - name: IMAGE
       type: string
-      default: "walaafahad/e2e-js-test"
+      default: "walaafahad/e2e-tests"
     - name: DOCKERFILE
       type: string
-      default: "/workspace/project-level3/e2e-js-test/Dockerfile"
+      default: "/workspace/project-level3/e2e-tests/Dockerfile"
     - name: CONTEXT
       type: string
-      default: "/workspace/project-level3/e2e-js-test"
+      default: "/workspace/project-level3/e2e-tests"
     - name: imageUrl
       type: string
-      default: "walaafahad/e2e-js-test"
+      default: "walaafahad/e2e-tests"
     - name: imageTag
       type: string
       default: "latest"
@@ -46,7 +46,7 @@ spec:
       - name: imageUrl
         value: "$(params.imageUrl)"
       - name: imageTag
-        value: "$(params.im`ageTag)"
+        value: "$(params.imageTag)"
     resources:
       inputs:
         - name: project-level3

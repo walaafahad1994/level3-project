@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: e2e-js-test-pipelinerun 
+  name: e2e-test-pipelinerun 
 spec:
   pipelineRef:
     name: e2e-test-pipeline
@@ -11,11 +11,11 @@ spec:
         name: e2e-src
   params:
     - name: imageUrl
-      value: "walaafaahd/e2e-js-test"
+      value: "walaafaahd/e2e-tests"
     - name: imageTag
       value: "latest"
     - name: IMAGE
-      value: "walaafahad/e2e-js-test"
+      value: "walaafahad/e2e-tests"
     - name: pathToYamlFile
       value: "level3-project/depallsvc.yaml"
       

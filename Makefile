@@ -78,9 +78,9 @@ delete-pyamnt:
 install-graf:
 	cd ../k8s-sandbox/ && make install-grafana
 ins-e2e:
-	kubectl create  -f./e2e-tests/resource.yaml -f./e2e-tests/task.yaml -f./e2e-tests/taskdep.yaml -f./e2e-tests/taskrun.yaml -f./e2e-tests/pipeline.yaml -f./e2e-tests/pipelinerun.yaml -n test
+	kubectl create  -f./e2e-js-test/resource.yaml -f./e2e-js-test/task.yaml -f./e2e-js-test/taskdep.yaml -f./e2e-js-test/taskrun.yaml -f./e2e-js-test/pipeline.yaml -f./e2e-js-test/pipelinerun.yaml -n test
 
 delete-e2e:
-	kubectl delete   -f./e2e-tests/resource.yaml -f./e2e-tests/task.yaml -f./e2e-tests/taskdep.yaml -f./e2e-tests/taskrun.yaml -f./e2e-tests/pipeline.yaml -f./e2e-tests/pipelinerun.yaml -n test
+	kubectl delete  -f./e2e-js-test/resource.yaml -f./e2e-js-test/task.yaml -f./e2e-js-test/taskdep.yaml -f./e2e-js-test/taskrun.yaml -f./e2e-js-test/pipeline.yaml -f./e2e-js-test/pipelinerun.yaml -n test
 
 

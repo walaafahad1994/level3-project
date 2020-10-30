@@ -7,3 +7,5 @@ To be honest, I forgot to write dairy until this day but I will write how I solv
 1- add server port 8081 on application.probites file to solve tomcat port error 
 2- & k proxy=8080
 3- mix avalble santza in user solve crashloopback and internal server error 
+4- api extension in yaml is old conver to   new apiversion 
+

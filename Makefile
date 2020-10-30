@@ -80,5 +80,7 @@ install-graf:
 ins-e2e:
 	kubectl create  -f./e2e-tests/task.yaml -f./e2e-tests/task.yaml -f./e2e-tests/taskrun.yaml  -n test
 
+delete-e2e:
+	kubectl delete  -f./e2e-tests/task.yaml -f./e2e-tests/task.yaml -f./e2e-tests/pipeline.yaml  -n test
 
 

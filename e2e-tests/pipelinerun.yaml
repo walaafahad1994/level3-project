@@ -1,0 +1,22 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: e2e-js-test-pipelinerun 
+spec:
+  pipelineRef:
+    name: e2e-js-test-pipeline
+  resources:
+    - name: project-level3
+      resourceRef:
+        name: e2e-src
+  params:
+    - name: imageUrl
+      value: "walaafaahd/e2e-js-test"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "walaafahad/e2e-js-test"
+    - name: pathToYamlFile
+      value: "level3-project/dep-services.yaml"
+      
+  serviceAccountName: front-svc-acc

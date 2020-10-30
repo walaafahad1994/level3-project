@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: e2e-js-test-pipeline
+  name: e2e-test-pipeline
 spec:
   resources:
     - name: project-level3
@@ -46,17 +46,8 @@ spec:
       - name: imageUrl
         value: "$(params.imageUrl)"
       - name: imageTag
-        value: "$(params.imageTag)"
+        value: "$(params.im`ageTag)"
     resources:
-      inputs:
-        - name: project-level3
-          resource: project-level3
-  - name: deploy-prod
-    taskRef:
-      name: deploy-prod-task
-    runAfter:
-      - build-push-image
-   resources:
       inputs:
         - name: project-level3
           resource: project-level3

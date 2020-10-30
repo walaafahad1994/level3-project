@@ -8,15 +8,8 @@ spec:
     inputs:
     - name: project-level3
       type: git
-  params:
-  - name: imageUrl
-    description: Url of image repository
-  - name: imageTag
-    description: Tag of the images to be used.
   steps:
   - name: run-test
     image: walaafahad/e2e-js-test
     command: ["/bin/sh"]
-    args:
-      - "-c"
-      - "/e2e-js-test/runner.sh"
+    args: ["-c", "/e2e-js-test/runner.sh"]

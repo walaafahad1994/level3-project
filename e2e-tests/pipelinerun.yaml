@@ -4,7 +4,7 @@ metadata:
   name: e2e-js-test-pipelinerun 
 spec:
   pipelineRef:
-    name: e2e-js-test-pipeline
+    name: e2e-test-pipeline
   resources:
     - name: project-level3
       resourceRef:

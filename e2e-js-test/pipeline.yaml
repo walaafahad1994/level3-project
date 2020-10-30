@@ -1,39 +1,25 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: e2e-js-test-pipeline
+  name: test-pipeline
 spec:
   resources:
-    - name: project-level3
+    - name: level3-project
       type: git
-  params:
-    - name: IMAGE
-      type: string
-      default: "walaafahad/e2e-js-test"
-    - name: DOCKERFILE
-      type: string
-      default: "/workspace/project-level3/e2e-js-test/Dockerfile"
-    - name: CONTEXT
-      type: string
-      default: "/workspace/project-level3/e2e-js-test"
-    - name: imageUrl
-      type: string
-      default: "walaafahad/e2e-js-test"
-    - name: imageTag
-      type: string
-      default: "latest"
   tasks:
-  - name: build-push-image
-    taskRef:
-      name: e2e-task-build-push
-    params:
-      - name: IMAGE
-        value: "$(params.IMAGE)"
-      - name: DOCKERFILE
-        value: "$(params.DOCKERFILE)"
-      - name: CONTEXT
-        value: "$(params.CONTEXT)"
-    resources:
-      inputs:
-        - name: project-level3
-          resource: project-level3
+    - name: build-push-task
+      taskRef:
+        name: e2e-test
+      resources:
+        inputs:
+        - name: level3-project
+          resource: level3-project
+    - name: deploy-to-cluster
+      taskRef:   
+        name: run-e2e-test
+      runAfter:
+        - build-push-task
+      resources:
+        inputs:
+        - name: level3-project
+          resource: level3-project

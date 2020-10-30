@@ -1,15 +1,16 @@
 apiVersion: tekton.dev/v1beta1
-kind: Task
+kind: TaskRun
 metadata:
-  name: e2e-task-run
+  name: e2e-test-taskrun
 spec:
+  serviceAccountName: front-svc-acc 
+  taskRef:
+    name: e2e-test
+  params:
+  - name: IMAGE
+    value: "walaafahad/e2e-test"
   resources:
     inputs:
     - name: level3-project
-      type: git
-  steps:
-  - name: run-test
-    image: walaafahad/e2e-js-test
-    workingDir: /workspace/level3-project/e2e-js-test
-    command: ["/bin/sh"]
-    args: ["-c", "/e2e-js-test/runner.sh"]
+      resourceRef:
+        name: e2e-js-src

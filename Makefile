@@ -79,10 +79,10 @@ delete-pyamnt:
 install-graf:
 	cd ../k8s-sandbox/ && make install-grafana
 ins-e2e:
-	kubectl create  -f./e2e-js-test/resource.yaml -f./e2e-js-test/task.yaml -f./e2e-js-test/taskrunt.yaml -f./e2e-js-test/taskrun.yaml -f ./e2e-js-test/runtask.yaml  -n test
+	kubectl create  -f./e2e-js-test/resource.yaml -f./e2e-js-test/task.yaml -f./e2e-js-test/tasktunt.yaml -f./e2e-js-test/taskrun.yaml -f ./e2e-js-test/runtask.yaml  -n test
 
 delete-e2e:
-	kubectl delete  -f./e2e-js-test/resource.yaml -f./e2e-js-test/task.yaml -f./e2e-js-test/taskrunt.yaml -f./e2e-js-test/taskrun.yaml -f ./e2e-js-test/runtask.yaml  -n test
+	kubectl delete  -f./e2e-js-test/resource.yaml -f./e2e-js-test/task.yaml -f./e2e-js-test/tasktunt.yaml -f./e2e-js-test/taskrun.yaml -f ./e2e-js-test/runtask.yaml  -n test
 ins-elf:
 	cd ../k8s-sandbox/ &&	make install-logging
 

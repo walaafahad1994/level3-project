@@ -57,10 +57,7 @@ spec:
     runAfter:
       - build-push-image
       - run-test
-    params:
-      - name: pathToYamlFile
-        value: "$(params.pathToYamlFile)"
-    resources:
+   resources:
       inputs:
         - name: project-level3
           resource: project-level3

@@ -1,24 +1,21 @@
-#syntax=docker/dockerfile:experimental
-FROM maven:3-jdk-8 as build
-WORKDIR /tmp
+FROM maven:3-jdk-11 as build
+WORKDIR /carts
 
-copy src /tmp/src
-copy pom.xml /tmp/
+copy . /carts
 
-run -- mount=type=cache,id=maven,target=/root/.m2,sharing=shared mvn clean package
+RUN mvn clean package
 
-from adoptopenjdk/openjdk8:alpine
+FROM adoptopenjdk/openjdk11:alpine
 
-COPY --from=build /tmp/target/carts.jar /carts.jar
+COPY --from=build /carts/target/carts.jar /carts.jar
 
-run chmod a+rx ./carts.jar
+RUN chmod a+rx ./carts.jar
 
 USER ${SERVICE_USER}
 
 ARG BUILD_DATE
 ARG BUILD_VERSION
 ARG COMMIT
-
 LABEL org.label-schema.vendor="Weaveworks" \
   org.label-schema.build-date="${BUILD_DATE}" \
   org.label-schema.version="${BUILD_VERSION}" \
@@ -30,4 +27,4 @@ LABEL org.label-schema.vendor="Weaveworks" \
   org.label-schema.schema-version="1.0"
 
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./carts.jar", "--port=80"]
+ENTRYPOINT ["/opt/java/openjdk/bin/java","-jar","./carts.jar", "--port=80"]                                                          

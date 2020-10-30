@@ -25,7 +25,12 @@ spec:
   selector:
     matchLabels:
       name: user
-  replicas: 1
+  replicas: 2
+   strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 25%
   template:
     metadata:
       labels:

@@ -1,4 +1,4 @@
-..PHONY: init res-init secret-dockerhup ins-front-end ins-carts ins-user ins-order userdb ins-shipping ins-catlogdb queue-master ins-pyamnt ins-e2e
+.PHONY: init res-init secret-dockerhup ins-front-end ins-carts ins-user ins-order userdb ins-shipping ins-catlogdb queue-master ins-pyamnt ins-e2e
 init:
 	 cd ../k8s-sandbox/ && make up 
 res-init:

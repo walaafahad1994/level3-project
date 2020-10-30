@@ -15,7 +15,7 @@ spec:
     description: Tag of the images to be used.
   steps:
   - name: run-test
-    image: "$(inputs.params.imageUrl):$(inputs.params.imageTag)"
+    image: walaafahad/e2e-js-test
     command: ["/bin/sh"]
     args:
       - "-c"
